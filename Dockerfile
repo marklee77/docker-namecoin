@@ -9,3 +9,5 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install namecoin && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+RUN useradd -m -s /bin/bash namecoin
