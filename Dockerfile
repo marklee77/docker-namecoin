@@ -19,13 +19,8 @@ RUN useradd -m -s /bin/bash namecoin
 USER namecoin
 WORKDIR /home/namecoin
 
-RUN mkdir -p ~/.namecoin && \
-    echo "rpcuser=`whoami`" >> ~/.namecoin/namecoin.conf && \
-    echo "rpcpassword=`openssl rand -hex 30/`" >> ~/.namecoin/namecoin.conf && \
-    echo "rpcport=8336" >> ~/.namecoin/namecoin.conf
-
 VOLUME /home/namecoin
 
 EXPOSE 8334 8336
 
-CMD namecoind -printtoconsole
+CMD ./start.sh
