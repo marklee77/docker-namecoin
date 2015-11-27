@@ -20,16 +20,15 @@ WORKDIR /home/namecoin
 
 COPY run.sh ./run.sh
 COPY supervisord.conf ./supervisord.conf
+
+RUN git clone https://github.com/namecoin/nmcontrol.git
+
 RUN chown -R namecoin:namecoin . && \
     chmod 755 ./run.sh && \
     chmod 644 ./supervisord.conf
 
-USER namecoin
-
-RUN git clone https://github.com/namecoin/nmcontrol.git
-
 VOLUME /home/namecoin
 
-EXPOSE 53 8080 8334 8336 9000
+EXPOSE 8053/udp
 
-ENTRYPOINT ["/home/namecoin/run.sh"]
+RUN ["/home/namecoin/run.sh"]
