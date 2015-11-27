@@ -30,6 +30,6 @@ RUN git clone https://github.com/namecoin/nmcontrol.git
 
 VOLUME /home/namecoin
 
-EXPOSE 8334 8336
+EXPOSE 53 8080 8334 8336 9000
 
 CMD ./start.sh
