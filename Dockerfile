@@ -16,11 +16,17 @@ RUN apt-get update && \
 
 RUN useradd -m -s /bin/bash namecoin
 
-USER namecoin
 WORKDIR /home/namecoin
+
+COPY start.sh ./start.sh
+COPY supervisord.conf ./supervisord.conf
+RUN chown -R namecoin:namecoin . && \
+    chmod 755 ./start.sh && \
+    chmod 644 ./supervisord.conf
 
 VOLUME /home/namecoin
 
 EXPOSE 8334 8336
 
+USER namecoin
 CMD ./start.sh
