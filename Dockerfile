@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -y install \
         curl \
+        git-core \
         python-bottle \
         python-pip \
         supervisor && \
@@ -24,9 +25,12 @@ RUN chown -R namecoin:namecoin . && \
     chmod 755 ./start.sh && \
     chmod 644 ./supervisord.conf
 
+USER namecoin
+
+RUN git clone https://github.com/namecoin/nmcontrol.git
+
 VOLUME /home/namecoin
 
 EXPOSE 8334 8336
 
-USER namecoin
 CMD ./start.sh
