@@ -7,7 +7,7 @@ RUN apt-get update && \
         curl \
         python-bottle \
         python-pip \
-        supervisord && \
+        supervisor && \
     curl -sL http://download.opensuse.org/repositories/home:p_conrad:coins/xUbuntu_14.04/Release.key | apt-key add - && \
     echo 'deb http://download.opensuse.org/repositories/home:/p_conrad:/coins/xUbuntu_14.04/ /' > /etc/apt/sources.list.d/namecoin.list && \
     apt-get update && \
