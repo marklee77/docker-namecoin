@@ -5,9 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -y install \
         curl \
-        git-core \
+        git \
         python-bottle \
-        python-pip \
         supervisor && \
     curl -sL http://download.opensuse.org/repositories/home:p_conrad:coins/xUbuntu_14.04/Release.key | apt-key add - && \
     echo 'deb http://download.opensuse.org/repositories/home:/p_conrad:/coins/xUbuntu_14.04/ /' > /etc/apt/sources.list.d/namecoin.list && \
