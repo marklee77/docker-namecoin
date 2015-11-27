@@ -8,4 +8,4 @@ rpcpassword=$(openssl rand -hex 30/)
 rpcport=8336
 EOF
 
-supervisord -n
+exec supervisord -n

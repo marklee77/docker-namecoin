@@ -18,10 +18,10 @@ RUN useradd -m -s /bin/bash namecoin
 
 WORKDIR /home/namecoin
 
-COPY start.sh ./start.sh
+COPY run.sh ./run.sh
 COPY supervisord.conf ./supervisord.conf
 RUN chown -R namecoin:namecoin . && \
-    chmod 755 ./start.sh && \
+    chmod 755 ./run.sh && \
     chmod 644 ./supervisord.conf
 
 USER namecoin
@@ -32,4 +32,4 @@ VOLUME /home/namecoin
 
 EXPOSE 53 8080 8334 8336 9000
 
-CMD ./start.sh
+ENTRYPOINT ["/home/namecoin/run.sh"]
