@@ -31,6 +31,6 @@ RUN git clone https://github.com/namecoin/nmcontrol.git
 
 VOLUME /home/namecoin
 
-EXPOSE 8053/udp
+EXPOSE 8053/udp 8336 9000
 
 CMD ["/home/namecoin/run.sh"]
